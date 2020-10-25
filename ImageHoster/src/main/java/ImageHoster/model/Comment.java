@@ -5,7 +5,7 @@ import javax.persistence.*;
 //import java.time.LocalDate;
 import java.util.Date;
 
-//@Entity annotation specifies that the corresponding class is a JPA entity
+
 @Entity
 //@Table annotation provides more options to customize the mapping.
 //Here the name of the table to be created in the database is explicitly mentioned as 'comments'. Hence the table named 'comments' will be created in the database with all the columns mapped to all the attributes in 'comments' class
@@ -17,12 +17,11 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     // @Column annotation specifies that the attribute will be mapped to the column
     // in the database.
-    // Here the column name is explicitly mentioned as 'id'
+   
     @Column(name = "id")
     private Integer id;
 
-    // Text is a Postgres specific column type that allows you to save
-    // text based data that will be longer than 256 characters
+   
     // this is a comment text
     @Column(columnDefinition = "TEXT")
     private String text;
@@ -38,9 +37,7 @@ public class Comment {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // The attribute contains image
-    // Note that no column will be generated for this attribute in the database
-    // instead a new table will be created
+  
     // Since the mapping is Many to Many, a new table will be generated containing
     // the two columns both referencing to the primary key of both the tables
     // ('images', 'comments')
