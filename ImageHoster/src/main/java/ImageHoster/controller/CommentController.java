@@ -31,12 +31,11 @@ public class CommentController {
     @Autowired
     private ImageService imageService;
 
-    // This controller method is called when the request pattern is of type
-    // 'addComment' and also the incoming request is of POST Type
-    // The method calls the createComment() method in the business logic passing the
+    
+    // The method calls the createComment() method  passing the
     // comments, image id, image title to be add comment
     // Looks for a controller method with mapping of type
-    // '/image/{imageId}/{imageTitle}'
+    
     @RequestMapping(value = "/image/{imageId}/{imageTitle}/comments", method = RequestMethod.POST)
     public String addComment(@RequestParam("comment") String commentText, @PathVariable("imageId") Integer imageId,
                              @PathVariable("imageTitle") String imageTitle, Model model, HttpSession session){
